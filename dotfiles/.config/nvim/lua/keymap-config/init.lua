@@ -34,30 +34,22 @@ vim.cmd([[
 ]])
 
 --> gitsigns <--
-map("n", "<leader>gd", ":Gitsigns diffthis<cr>", opts)
+map("n", "<leader>gd", ":DiffviewOpen<cr>", opts)
+map("n", "<leader>gc", ":DiffviewClose<cr>", opts)
 map("n", "<leader>gn", ":Gitsigns next_hunk<cr>", opts)
 map("n", "<leader>gp", ":Gitsigns prev_hunk<cr>", opts)
 map("n", "<leader>gs", ":Gitsigns preview_hunk<cr>", opts)
 map("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
-map("n", "<leader>gR", ":Gitsigns reset_hunk<cr>", opts)
+map("n", "<leader>ghr", ":Gitsigns reset_hunk<cr>", opts)
+map("n", "<leader>ghs", ":Gitsigns stage_hunk<cr>", opts)
 
---> barbar mappings <--
-map("n", "<A-,>", ":BufferPrevious<CR>", opts)
-map("n", "<A-.>", ":BufferNext<CR>", opts)
-map("n", "<A-<>", ":BufferMovePrevious<CR>", opts)
-map("n", "<A->>", ":BufferMoveNext<CR>", opts)
-map("n", "<A-1>", ":BufferGoto 1<CR>", opts)
-map("n", "<A-2>", ":BufferGoto 2<CR>", opts)
-map("n", "<A-3>", ":BufferGoto 3<CR>", opts)
-map("n", "<A-4>", ":BufferGoto 4<CR>", opts)
-map("n", "<A-5>", ":BufferGoto 5<CR>", opts)
-map("n", "<A-6>", ":BufferGoto 6<CR>", opts)
-map("n", "<A-7>", ":BufferGoto 7<CR>", opts)
-map("n", "<A-8>", ":BufferGoto 8<CR>", opts)
-map("n", "<A-9>", ":BufferGoto 9<CR>", opts)
-map("n", "<A-0>", ":BufferLast<CR>", opts)
-map("n", "<A-c>", ":BufferClose<CR>", opts)
-map("n", "<C-p>", ":BufferPick<CR>", opts)
-map("n", "<leader>bb", ":BufferOrderByBufferNumber<CR>", opts)
-map("n", "<leader>bd", ":BufferOrderByDirectory<CR>", opts)
-map("n", "<leader>bl", ":BufferOrderByLanguage<CR>", opts)
+map("n", "<leader>rn", ":lua vim.lsp.buf_rename()<CR>", opts)
+map("v", "<leader>f", ":lua vim.lsp.buf.format()<CR>", opts)
+
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+    pattern = {"*.C", "*.c", "*.cpp", "*.h", "*.H", "*.inl"},
+    group = clangformat,
+    callback = function()
+        map("v", "<leader>f", ":ClangFormat<CR>", opts)
+    end
+})

@@ -75,7 +75,7 @@ zinit light joshskidmore/zsh-fzf-history-search
 
 zinit load jeffreytse/zsh-vi-mode
 
-export TERM=xterm-256color
+export TERM=xterm-256color-italic
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 
