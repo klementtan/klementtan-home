@@ -2,11 +2,12 @@
 normal = {family = "MesloLGS NF", style = "Regular"}
 bold = {family = "MesloLGS NF", style = "Bold" }
 italic = {family = "MesloLGS NF", style = "Italic"}
-size = 10
+size = 14
 
 [window]
 padding = {x = 3, y = 3 }
 dynamic_padding = true
+option_as_alt = "Both"
 
 # Colors (Gruvbox Material Medium Dark)
 
