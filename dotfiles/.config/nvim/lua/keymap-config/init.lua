@@ -4,7 +4,9 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " " -- leader key
 
 --> OSCYank <--
-map("v", "<leader>y", ":OSCYank<CR>", opts)
+vim.keymap.set('n', '<leader>y', require('osc52').copy_operator, {expr = true})
+vim.keymap.set('n', '<leader>yy', '<leader>c_', {remap = true})
+vim.keymap.set('v', '<leader>y', require('osc52').copy_visual)
 
 --> Generic <--
 map("n", "<C-h>", "<C-W>h", opts)

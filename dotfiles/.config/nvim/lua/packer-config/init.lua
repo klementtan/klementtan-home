@@ -32,7 +32,7 @@ return require("packer").startup(function()
 	use("startup-nvim/startup.nvim")
 	use("lervag/vimtex")
 
-    use{"ojroques/vim-oscyank", tag = "v1.0.0"}
+    use {'ojroques/nvim-osc52'}
 
 	-- use("vigoux/LanguageTool.nvim")
 	use("mfussenegger/nvim-dap")
